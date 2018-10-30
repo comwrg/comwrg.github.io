@@ -176,4 +176,12 @@ auto_excerpt:
   enable: false
   lenght: 150
 
+gitalk:
+  enable: true
+  owner: comwrg
+  admin: comwrg
+  repo: comwrg.github.io
+  client_id: 12eab1a19a28dc7d4148
+  client_secret: 731068c27d9767da7e2639fa6b9fe604abd51026
+
 # vim: et:ts=2:sw=2:
