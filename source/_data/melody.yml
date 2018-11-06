@@ -27,9 +27,9 @@ google_analytics: UA-128370377-1
 
 # algolia_search
 algolia_search:
-  enable: false
+  enable: true
   hits:
-    per_page: 10
+    per_page: 20
   labels:
     input_placeholder: Search for Posts
     hits_empty: "We didn't find any results for the search: ${query}"

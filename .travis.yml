@@ -9,6 +9,7 @@ script:
 
 before_deploy:
   - npm install
+  - hexo algolia
   - hexo g
 
 deploy:

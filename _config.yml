@@ -82,3 +82,18 @@ deploy:
   repo: git@github.com:comwrg/comwrg.github.io.git
   branch: master
   message: add
+
+algolia:
+  applicationID: '9HV7HTI7X2'
+  apiKey: 'a26739d852449fc106e2d8d61a98b8c8'
+  indexName: 'blog'
+  chunkSize: 5000
+  fields:
+    - title
+    - tags
+    - categories
+    - excerpt:strip
+    - content:strip
+    - slug
+    - permalink
+    - path
