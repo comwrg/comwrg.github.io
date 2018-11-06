@@ -1,0 +1,58 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Vim range详解"><meta name="keywords" content="vim,range"><meta name="author" content="comwrg"><meta name="copyright" content="comwrg"><title>Vim range详解 | comwrg's Blog</title><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.5.6"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.5.6"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/gh/upupming/gitalk@36368e5dffd049e956cdbbd751ff96c28d8255cf/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><link rel="dns-prefetch" href="https://hm.baidu.com"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?abe668bc0cfc7ae3d268c89a1bdaeb36";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-128370377-1', 'auto');
+ga('send', 'pageview');</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"9HV7HTI7X2","apiKey":"a26739d852449fc106e2d8d61a98b8c8","indexName":"blog","hits":{"per_page":20},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#range"><span class="toc-number">1.</span> <span class="toc-text">range</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加减号"><span class="toc-number">1.1.</span> <span class="toc-text">加减号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逗号和分号"><span class="toc-number">1.2.</span> <span class="toc-text">逗号和分号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.3.</span> <span class="toc-text">//</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://avatars2.githubusercontent.com/u/19854253"></div><div class="author-info__name text-center">comwrg</div><div class="author-info__description text-center"></div><div class="follow-button"><a href="https://github.com/comwrg">Follow me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">3</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">6</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">2</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" href="http://login546.xyz/">Unique's Blog</a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://user-images.githubusercontent.com/19854253/47698196-50231580-dc49-11e8-83b3-6cf95fa1236c.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">comwrg's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">Vim range详解</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-11-06</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/vim-range/">vim - range</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>本来是要写<code>substitute</code>的, 然后发现<code>range</code>功能太过于强大, 并且很多地方都要使用,<br>所以本文写<code>range</code>, 写下本文也是为自己梳理一下,<br>本文的主要内容主要来自官方文档加上自己的理解, 如果想看官方文档请在Vim中执行<code>:h [range]</code></p>
+<a id="more"></a>
+<h2 id="range"><a href="#range" class="headerlink" title="range"></a>range</h2><p><code>[range]</code>代表替换作用的范围</p>
+<p>下面我将范围分成<code>单行</code>和<code>多行</code></p>
+<p>单行</p>
+<ul>
+<li><code>{number}</code> 行号为<code>number</code> 的那一行</li>
+<li><code>.</code> 光标当前行(默认)</li>
+<li><code>$</code> 最后一行</li>
+<li><code>&#39;t</code> mark <code>t</code>(小写的mark) 所在 的那一行</li>
+<li><code>&#39;T</code> mark <code>T</code>(大写的mark) 所在 的那一行 (如果在mark <code>T</code> 不在本文件不会生效)</li>
+<li><code>/{pattern}[/]</code> 当前光标向下匹配<code>{pattern}</code> 的那一行</li>
+<li><code>?{pattern}[?]</code> 当前光标向上匹配<code>{pattern}</code> 的那一行</li>
+<li><code>\/</code> 向下搜索你上一搜索的内容 的那一行</li>
+<li><code>\?</code> 向上搜索你上一搜索的内容 的那一行</li>
+<li><code>\&amp;</code> 向下搜索你上一次替换中的<code>{pattern}</code> 的那一行</li>
+</ul>
+<p>多行</p>
+<ul>
+<li><code>%</code> 整个文件, 相当于<code>1,$</code></li>
+</ul>
+<p>注: 如果向下搜索指的并不单单是从当前光标到底部, 而是光标到底部(不包含光标那一行)和顶部到光标(包含光标那一行)</p>
+<h3 id="加减号"><a href="#加减号" class="headerlink" title="加减号"></a>加减号</h3><p>在上面的<code>单行范围</code>中我们又可以在后面加上数字来指定一个偏移<br>e.g.<br><code>.+1</code> 就代表向下偏移一行<br><code>.-1</code> 就代表向上偏移一行<br><code>/findsomething/+3</code> 找到<code>findsomething</code>那行再往下偏移3行</p>
+<h3 id="逗号和分号"><a href="#逗号和分号" class="headerlink" title="逗号和分号"></a>逗号和分号</h3><p><code>{n1},{n2}</code> 表示的范围就是<code>n1</code>到<code>n2</code>(包括)<br>e.g.<br><code>1,3</code> 表示第一行到第三行(包括)</p>
+<p><code>1,/find/</code> 表示从<code>第一行</code>到 从光标开始找<code>find</code>的那一行</p>
+<p><code>;</code>和<code>,</code>为唯一的区别是<code>;</code>会先移动光标到<code>;</code>左边的行号, 再去执行,<br>这就导致了开始找的范围不一样</p>
+<h3 id=""><a href="#" class="headerlink" title="//"></a>//</h3><p><code>{n1}//{n2}</code> 先找<code>n1</code>在从<code>n1</code>那行开始找<code>n2</code></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">comwrg</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://comwrg.github.io/2018/11/06/vim-range-details/">https://comwrg.github.io/2018/11/06/vim-range-details/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/vim/">vim</a><a class="post-meta__tags" href="/tags/range/">range</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2018/11/02/about-linux-attr/"><span>关于Linux attr的事情</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '12eab1a19a28dc7d4148',
+  clientSecret: '731068c27d9767da7e2639fa6b9fe604abd51026',
+  repo: 'comwrg.github.io',
+  owner: 'comwrg',
+  admin: 'comwrg',
+  id: md5(decodeURI(location.pathname)),
+  language: ''
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2018 By comwrg</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.6"></script><script src="/js/fancybox.js?version=1.5.6"></script><script src="/js/sidebar.js?version=1.5.6"></script><script src="/js/copy.js?version=1.5.6"></script><script src="/js/fireworks.js?version=1.5.6"></script><script src="/js/transition.js?version=1.5.6"></script><script src="/js/scroll.js?version=1.5.6"></script><script src="/js/head.js?version=1.5.6"></script><script src="/js/search/algolia.js"></script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
