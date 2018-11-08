@@ -26,11 +26,11 @@ ga('send', 'pageview');</script><script>var GLOBAL_CONFIG = {
 <li><code>[range]</code></li>
 <li><code>s[ubstitute]</code></li>
 <li><code>{pattern}</code></li>
-<li><code>string</code></li>
+<li><code>{string}</code></li>
 <li><code>[flags]</code></li>
 <li><code>[count]</code><br>来进行讲解</li>
 </ul>
-<h3 id="range"><a href="#range" class="headerlink" title="[range]"></a>[range]</h3><p>range太强大, 很多地方都可以用的到, 所以我单独写了一篇: <a href="/2018/11/06/vim-range-details/">Vim range详解</a></p>
+<h3 id="range"><a href="#range" class="headerlink" title="[range]"></a><code>[range]</code></h3><p>range太强大, 很多地方都可以用的到, 所以我单独写了一篇: <a href="/2018/11/06/vim-range-details/">Vim range详解</a></p>
 <h3 id="s-ubstitute"><a href="#s-ubstitute" class="headerlink" title="s[ubstitute]"></a><code>s[ubstitute]</code></h3><p>这里的<code>s[ubstitute]</code>代表动作为替换, 由于<code>substitute</code>太长, 一般简写<code>s</code>即可</p>
 <h3 id="pattern"><a href="#pattern" class="headerlink" title="{pattern}"></a><code>{pattern}</code></h3><p>用来匹配的正则表达式</p>
 <h3 id="string"><a href="#string" class="headerlink" title="{string}"></a><code>{string}</code></h3><p>用来替换的内容<br>支持正则表达式的子匹配</p>
@@ -43,7 +43,7 @@ ga('send', 'pageview');</script><script>var GLOBAL_CONFIG = {
 <li><code>\t</code> table</li>
 <li><code>\\</code> \</li>
 </ul>
-<h3 id="flags"><a href="#flags" class="headerlink" title="[flags]"></a>[flags]</h3><p>Options</p>
+<h3 id="flags"><a href="#flags" class="headerlink" title="[flags]"></a><code>[flags]</code></h3><p>Options</p>
 <ul>
 <li><code>c</code> confirm, 每个匹配都可以选择替换还是不替换<ul>
 <li><code>y</code> yes, 替换</li>
@@ -62,7 +62,7 @@ ga('send', 'pageview');</script><script>var GLOBAL_CONFIG = {
 <li><code>l</code> list, 类似<code>p</code>, 但显示方式类似于<code>:list</code></li>
 </ul>
 <!-- 省去 & e r -->
-<h3 id="count"><a href="#count" class="headerlink" title="[count]"></a>[count]</h3><p>替换的行数<br>默认为一行<br>如果<code>[range]</code>省略, 连光标那一行往下一共<code>[count]</code>行的范围<br>否则是<code>[range]</code>最后一行往下一共<code>[count]</code>行的范围</p>
+<h3 id="count"><a href="#count" class="headerlink" title="[count]"></a><code>[count]</code></h3><p>替换的行数<br>默认为一行<br>如果<code>[range]</code>省略, 连光标那一行往下一共<code>[count]</code>行的范围<br>否则是<code>[range]</code>最后一行往下一共<code>[count]</code>行的范围</p>
 <!-- omit
 snomagic, magic
 
