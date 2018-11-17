@@ -9,7 +9,7 @@ tags:
 
 categories:
   - linux
-    - global-proxy
+  - global-proxy
 ---
 
 

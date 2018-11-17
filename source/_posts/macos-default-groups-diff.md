@@ -6,7 +6,7 @@ tags:
   - groups
 categories:
   - macos
-    - groups
+  - groups
 ---
 
 

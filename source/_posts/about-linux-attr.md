@@ -8,7 +8,7 @@ tags:
 
 categories:
   - linux
-    - attr
+  - attr
 ---
 
 

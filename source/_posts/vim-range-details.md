@@ -7,7 +7,7 @@ tags:
 
 categories:
   - vim
-    - range
+  - range
 ---
 
 本来是要写`substitute`的, 然后发现`range`功能太过于强大, 并且很多地方都要使用, 

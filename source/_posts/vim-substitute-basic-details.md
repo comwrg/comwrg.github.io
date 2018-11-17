@@ -6,7 +6,7 @@ tags:
   - substitute
 categories:
   - vim
-    - substitute
+  - substitute
 ---
 
 使用Vim很长时间了, 我对于替换命令的印象还是最基本的这样`:%s/pattern/string/g`
