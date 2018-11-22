@@ -1,5 +1,5 @@
 ---
-title: 算法题: 推荐潜在好友
+title: 算法题-推荐潜在好友
 date: 2018-11-21 21:01:25
 tags:
   - algorithm
