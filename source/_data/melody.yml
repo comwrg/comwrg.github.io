@@ -176,12 +176,16 @@ auto_excerpt:
   enable: false
   lenght: 150
 
-gitalk:
+valine:
   enable: true
-  owner: comwrg
-  admin: comwrg
-  repo: comwrg.github.io
-  client_id: 12eab1a19a28dc7d4148
-  client_secret: 731068c27d9767da7e2639fa6b9fe604abd51026
+  appId: NnVIaYLwH00koPcvIon5xsSO-gzGzoHsz
+  appKey: AebWUI8A5jqD9txFFxKtS7DY
+  notify: false
+  verify: false
+  pageSize: 10
+  avatar: mm
+  lang: en
+  placeholder: Just go go
+  guest_info: nick,mail
 
 # vim: et:ts=2:sw=2:
