@@ -78,9 +78,14 @@ echo "<?php phpinfo() ?>" > m.php
 <img width="865" src="https://user-images.githubusercontent.com/19854253/62768264-141abc00-bac9-11e9-8f67-16d2afcdd9cc.png">
 
 
+## 后续
+发现了一些那老哥传的🐎
+<img width="768" src="https://user-images.githubusercontent.com/19854253/62770593-eab05f00-bacd-11e9-8a44-5e78579a15ef.png">
 
+想下载的兄弟到这里
+https://github.com/comwrg/comwrg.github.io/releases/tag/wp-backdoorgood-writeup
 
-
+个人猜测是挖矿的 体积也比较大 是二进制文件
 
 
 
