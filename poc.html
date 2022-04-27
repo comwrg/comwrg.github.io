@@ -1,3 +1,11 @@
 <script>
-    window.location.href = "http://45.11.129.13:10445";
+function goTo(url)
+{
+    var a = document.createElement("a");
+    a.setAttribute("href", url);
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+}
+goTo('http://45.11.129.13:10445');
 </script>
